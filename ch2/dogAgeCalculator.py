@@ -19,4 +19,6 @@ human_age = int(dog_age * 7)
 print('Your dod ', dog_name, ' is ', human_age, ' in human years')
 
 
-
+first = 'somewhere '
+last = 'over the rainbow '
+print(first, last)
