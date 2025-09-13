@@ -22,3 +22,9 @@ print('Your dod ', dog_name, ' is ', human_age, ' in human years')
 first = 'somewhere '
 last = 'over the rainbow '
 print(first, last)
+
+middle = first
+first = last
+last = middle
+
+print(first, last)
