@@ -1,7 +1,8 @@
 import random
 
-random_choice = random.randint(0,2)
 winner = ''
+random_choice = random.randint(0,2)
+
 # Way Two to write the code
 # choices = [ 'rock', 'paper', 'scissors']
 # computer_choice = random.choices(choices)
@@ -13,9 +14,10 @@ elif random_choice == 1:
     computer_choice = 'paper'
 else:
     computer_choice = 'scissors'
-print('The computer chooses', computer_choice)
 
-user_choice = input('Please choose rock paper or scissors')
+# print('The computer chooses', computer_choice)
+
+user_choice = input('Please enter choice of either rock paper or scissors')
 
 # print('You chose',user_choice, 'and the computer chooses', computer_choice)
 
@@ -25,7 +27,7 @@ elif computer_choice == 'rock' and user_choice == 'scissors':
     winner = 'Computer'
 elif computer_choice == 'scissors' and user_choice == 'paper':
     winner = 'Computer'
-elif computer_choice == 'paper' and user_choice == 'stone':
+elif computer_choice == 'paper' and user_choice == 'rock':
     winner = 'Computer'
 else:
     winner = 'User'
