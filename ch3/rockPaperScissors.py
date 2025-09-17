@@ -1,7 +1,7 @@
 import random
 
-winner = ''
-random_choice = random.randint(0,2)
+winner = '' # set up winner variable as empty string
+random_choice = random.randint(0,2) # computer randomly chooses number between 0 & 2
 
 # Way Two to write the code
 # choices = [ 'rock', 'paper', 'scissors']
@@ -14,10 +14,10 @@ elif random_choice == 1:
     computer_choice = 'paper'
 else:
     computer_choice = 'scissors'
-
+# Above code uses random number to then attach 1.rock 2.paper 3.scissors to random number
 # print('The computer chooses', computer_choice)
 
-user_choice = input('Please enter choice of either rock paper or scissors? ')
+user_choice = input('Please enter choice of either rock paper or scissors? ') # obtains user choice via input
 
 # print('You chose',user_choice, 'and the computer chooses', computer_choice)
 
@@ -31,7 +31,7 @@ elif computer_choice == 'paper' and user_choice == 'rock':
     winner = 'Computer'
 else:
     winner = 'User'
-
+# Above if else statement is the game logic to define whether computer or user wins
 if winner == 'Tie':
     print( 'We both chose', computer_choice + ', play again.')
 else:
