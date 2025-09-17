@@ -1,0 +1,1 @@
+computer_choice = random.choices(choices)

@@ -17,7 +17,11 @@ else:
 # Above code uses random number to then attach 1.rock 2.paper 3.scissors to random number
 # print('The computer chooses', computer_choice)
 
-user_choice = input('Please enter choice of either rock paper or scissors? ') # obtains user choice via input
+user_choice = ''
+while (user_choice != 'rock' and 
+       user_choice != 'paper' and
+       user_choice != 'scissors'):
+    user_choice = input('Please enter choice of either rock paper or scissors? ')
 
 # print('You chose',user_choice, 'and the computer chooses', computer_choice)
 
