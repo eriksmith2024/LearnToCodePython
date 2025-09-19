@@ -10,10 +10,10 @@ scores = [60, 50, 60, 58, 54, 54,
           46, 31, 57, 52, 44, 18,
           41, 53, 55, 61, 51, 44]
 
+high_score = 0 
 
 # i = 0 #  NEED TO INITIALISE WITH THE WHILE LOOP OPTION - NOT NEEDED IN THE FOR IN LOOP 
 length = len(scores)
-print('\nTotal Bubble tests:',length,'\n')
 
 # This solution prints the code with a space between the # and the index.  
 # while i < length:
@@ -24,6 +24,20 @@ for i in range(length):
 # while i < length: #THIS IS AN ALTERNATE LOOP OPTION WITH WHILE
     print('Bubble solution #' + str(i), "scored: ", scores[i])
     # i = i + 1. # ONLY REQUIED IN THE WHILE LOOP NOT NEEDED IN THE FOR IN LOOP
+    if scores[i] > high_score:
+        high_score =  scores[i]
+
+print('\nTotal Bubble tests:',length,'\n')
+print('Highest Bubble score:', high_score, '\n')
+
+highest_scores = [ ]
+
+
+
+
+
+
+
 
 
 # CHAT GPT NOTES BELOW ON DIFFERENCE OF WHILE AND FOR .. IN LOOP
