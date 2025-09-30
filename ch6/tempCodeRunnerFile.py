@@ -1,0 +1,1 @@
+print(smoothies[2:4])
