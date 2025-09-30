@@ -19,15 +19,27 @@ def count_syllables(words):
     return count
 
 def count_syllables_in_word(word):
-    count = 0
+    count = 0 
 
-    if len(word) <= 3:
+
+    endings = '.,;!?:'
+    last_char = word[-1]
+
+    if last_char in endings:
+        processed_word = word[0:-1]
+    else:
+        processed_word = word
+
+    if len(processed_word) <= 3:
         return 1
+    
+    if processed_word[-1] in 'eE':
+        processed_word = processed_word[0:-1]
     
     vowels ="aeiouAEIOU"
     prev_char_was_vowel = False
 
-    for char in word:
+    for char in processed_word:
         if char in vowels:
             if not prev_char_was_vowel:
                 count = count + 1
