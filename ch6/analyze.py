@@ -46,6 +46,9 @@ def count_syllables_in_word(word):
             prev_char_was_vowel = True
         else:
             prev_char_was_vowel = False
+    
+    if processed_word[-1] in 'yY':
+        count = count + 1
 
     return count
 
