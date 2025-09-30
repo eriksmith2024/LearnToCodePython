@@ -34,7 +34,7 @@ def compute_readability(text):
 words = compute_readability(ch1text.text)
 
 # print Python's built-in punctuation string
-print(string.punctuation)
+print('\n',string.punctuation ,'\n')
 
 
 # MY SOLUTION
