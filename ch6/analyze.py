@@ -52,6 +52,22 @@ def count_syllables_in_word(word):
 
     return count
 
+def output_results(score):
+    if score >= 90:
+        print('Reading level at 5th grade \n')
+    elif score >= 80:
+        print('Reading level at 6th grade \n')
+    elif score >= 70:
+        print('Reading level at 7th grade \n')
+    elif score >= 60:
+        print('Reading levele at 8-9th grade \n')
+    elif score >= 50:
+        print('Reading score at 10th-12th grade \n')
+    elif score >= 30:
+        print('Reading level of college student \n')
+    else:
+        print('Reading level at college graduate \n')
+
 
 def compute_readability(text):
     total_words = 0
@@ -63,10 +79,15 @@ def compute_readability(text):
     total_words = len(words)
     total_sentences = count_sentences(text)
     total_syllables = count_syllables(words)
+
+    score = (206.835 - 1.015 * (total_words / total_sentences)
+             - 84.6 * (total_syllables / total_words))
     
     # print (words)
     print('\n',total_words, 'words')
     print('\n', total_sentences, 'sentences')
     print('\n', total_syllables, 'syllables \n')
+    print('\n', score, 'reading ease score \n')
+    output_results(score)
     
 compute_readability(ch1text.text)
