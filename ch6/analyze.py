@@ -1,4 +1,5 @@
 import ch1text
+import textToTest
 
 def count_sentences(text):
     count = 0
@@ -90,4 +91,4 @@ def compute_readability(text):
     print('\n', score, 'reading ease score \n')
     output_results(score)
     
-compute_readability(ch1text.text)
+compute_readability(textToTest.text)
