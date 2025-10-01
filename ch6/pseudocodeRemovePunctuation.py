@@ -1,4 +1,4 @@
-import ch1text
+import ch7.ch1text as ch1text
 import string  # needed for string.punctuation
 
 def compute_readability(text):
