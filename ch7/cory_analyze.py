@@ -1,4 +1,3 @@
-import analyze
 
 # Test passage from Cory Doctorow's text
 sample_text = """
