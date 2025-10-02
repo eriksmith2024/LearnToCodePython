@@ -4,6 +4,16 @@ import os
 
 turtles = []
 
+class SuperTurtle(turtle.Turtle):
+    def forward(self, distance):
+        cheat_distance = distance + 25
+        turtle.Turtle.forward(self, cheat_distance)
+    
+class SlowTurtle(turtle.Turtle):
+    def forward(self, distance):
+        doyle_distance = distance -25
+        turtle.Turtle.forward(self, doyle_distance)
+
 def setup():
     global turtles
     startline = -625
@@ -20,8 +30,14 @@ def setup():
     turtle_ycor = [-40, -20, 0, 20, 40]
     turtle_color = ['blue', 'red', 'purple', 'yellow', 'green']
 
-    for i in range(len(turtle_ycor)):
-        new_turtle = turtle.Turtle()
+    for i in range(0,len(turtle_ycor)):
+        if i == 1:
+            new_turtle = SuperTurtle()
+        elif i == 3:
+            new_turtle = SlowTurtle()
+        else:
+            new_turtle = turtle.Turtle()
+      
         new_turtle.shape("turtle")
         new_turtle.penup()
         new_turtle.setpos(startline, turtle_ycor[i])
