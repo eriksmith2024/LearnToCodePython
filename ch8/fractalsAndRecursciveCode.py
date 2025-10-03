@@ -1,0 +1,35 @@
+import turtle
+
+def setup(pencil):
+    pencil.color('blue')
+    pencil.penup()
+    pencil.goto(-200,100)
+    pencil.pendown()
+
+def koch(pencil, size, order):
+    if order == 0:
+        pencil.forward(size)
+    else:
+        for angle in [60, -120, 60, 0]:
+            koch(pencil, size/3, order-1)
+            pencil.left(angle)
+
+def main():
+    pencil = turtle.Turtle()
+    setup(pencil)
+    turtle.tracer(100) #Delete this line for original
+
+    order = 5 # Change this number to impact the change in drawing
+    size = 400
+    # koch(pencil, size, order) #Uncomment this to have the original
+
+    for i in range(3):#Delete this line for original
+        koch(pencil, size, order)#Delete this line for original
+        pencil.right(120)#Delete this line for original
+
+if __name__ == '__main__':
+    main()
+    turtle.tracer(100)
+    turtle.mainloop()
+
+

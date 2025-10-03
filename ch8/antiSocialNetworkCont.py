@@ -14,8 +14,3 @@ users['Josh'] = {'email': 'josh@wickedlysmart.com', 'gender': 'm', 'age': 32, 'f
 
 print(users)
 
-def average_age (username):
-    global users
-
-    user = users[username]
-    friends = user[friends]
