@@ -15,17 +15,19 @@ placeholders = ['NOUN', 'ADJECTIVE', 'VERB_ING', 'VERB']
 def process_line(line):
     global placeholders
     processed_line = ''
-    
     words = line.split()
-
     for word in words:
-        if word in placeholders:
-            answer = input('Enter a ' + word + ':')
-            process_line = processed_line + answer + ' '
+        stripped = word.strip('.,;?!')
+        if stripped in placeholders:
+            answer = input('Enter a ' + stripped + ':')
+            processed_line = processed_line + answer + ' '
+            if word[-1] in '.,;?!':
+                processed_line = processed_line + word[-1] + ' '
+
         else:
             processed_line = processed_line + word + ' '
     
-    return processed_line
+    return processed_line + '\n'
 
 def main():
     lib = make_crazy_lib('lib.txt')
