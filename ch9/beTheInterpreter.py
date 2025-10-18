@@ -3,9 +3,17 @@
 
 # filename = 'document' + 1 + '.txt'
 
-int('1')
-int('2')
-int('E')
-int('4')
-int('5')
-int('6')
+# int('1')
+# int('2')
+# int('E')
+# int('4')
+# int('5')
+# int('6')
+
+# msg = 'hello'
+
+# def hi():
+#     print(msg)
+#     msg = 'hi'
+
+# hi()
