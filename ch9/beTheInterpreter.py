@@ -19,5 +19,5 @@
 # hi()
 
 
-firstname = 'Beethoven'
-print('First name: ' + name )
+# firstname = 'Beethoven'
+# print('First name: ' + name )
