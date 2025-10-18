@@ -17,3 +17,7 @@
 #     msg = 'hi'
 
 # hi()
+
+
+firstname = 'Beethoven'
+print('First name: ' + name )
