@@ -1,12 +1,20 @@
+import random 
+
 height = 100                # number of rows in the grid
 width = 100                 # number of columns in the grid
 
+def randomize(grid, width, height):
+    for i in range(0, height):
+        for j in range (0, width):
+            grid[i][j] =  random.randint(0,1)
+
 grid_model = [0] * height   # create list with placeholders for current generation
 next_grid_model = [0] * height  # create placeholders for the next generation
-
 for i in range(height):     
     grid_model[i] = [0] * width        # fill each row with 100 zeros for current grid
     next_grid_model[i] = [0] * width   # fill each row with 100 zeros for next grid
+
+randomize(grid_model, width, height)
 
 def next_gen():
     global grid_model, next_grid_model   # allow modification of the two global grids
@@ -26,6 +34,7 @@ def next_gen():
                     cell = -1                # special marker for survival (your code keeps this)
 
             next_grid_model[i][j] = cell     # write the new state into the next grid
+            print('New value is', next_grid_model[i][j])
 
         temp = grid_model                    # swap grids after finishing each row
         grid_model = next_grid_model         # next generation becomes the current grid
