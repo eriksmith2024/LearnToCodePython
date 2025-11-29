@@ -21,12 +21,12 @@ print_dog(jackson)
 
 
 class ServiceDog(Dog):
-    def __init__(self, name, age, wight, handler):
+    def __init__(self, name, age, weight, handler):
         Dog.__init__(self, name, age, weight)
         self.handler = handler
 
-def walk(self):
-    print(self.name, 'is helping its handler', self.handler, 'walk')
+    def walk(self):
+        print(self.name, 'is helping its handler', self.handler, 'walk')
 
 rody = ServiceDog('Rody', 8, 38, 'Joseph')
 print("This dog's name is", rody.name)
