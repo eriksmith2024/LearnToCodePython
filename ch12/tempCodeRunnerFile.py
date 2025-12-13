@@ -1,5 +1,5 @@
-    def bark(self):
-        if self.is_working:
-            print(self.name, 'says " I can\'t bark, I\'m working"')
-        else:
-            Dog.bark(self)
+    # def walk(self):
+    #     if self.frisbee is not None:
+    #         print(self.name, 'says, "I can\'t walk, I\'m playing Frisbee"')
+    #     else:
+    #         super().walk()

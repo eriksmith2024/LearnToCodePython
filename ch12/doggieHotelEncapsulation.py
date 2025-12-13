@@ -35,7 +35,10 @@ class ServiceDog(Dog):
         self.is_working = False
 
     def walk(self):
-        print(self.name, 'is walking')
+        if self.is_working:
+            print(self.name, 'is helping its handler ' + self.handler, 'walk')
+        else:
+            Dog.walk
 
     def bark(self):
         if self.is_working:
@@ -117,30 +120,61 @@ def test_code():
 # duse.catch(red_frisbee)
 # duse.walk()
 
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return "I'm a person and my name is " + self.name
+
+class DogWalker(Person):
+    def __init__(self, name):
+        Person.__init__(self, name)
+    
+    def walk_the_dogs(self, dogs):
+        for dog_name in dogs:
+            dogs[dog_name].walk()
+
+
 class Hotel:
     def __init__(self, name):
         self.name = name
-        self.kennel_names = []
-        self.kennel_dogs = []
+        self.kennel = {}
 
     def check_in(self, dog):
         if isinstance(dog, Dog):
-            self.kennel_names.append(dog.name)
-            self.kennel_dogs.append(dog)
+            self.kennel[dog.name] = dog
             print(dog.name, 'is checked into', self.name)
         else:
             print('Sorry only Dogs are allowed in', self.name)
 
     def check_out(self, name):
-        for i in range(0, len(self.kennel_names)):
-            if name == self.kennel_names[i]:
-                dog = self.kennel_dogs[i]
-                del self.kennel_names[i]
-                del self.kennel_dogs[i]
-                print(dog.name, 'is checked out of', self.name)
-                return dog
-        print('Sorry', name, ' is checked out of', self.name)
-        return None
+        if name in self.kennel:
+            dog = self.kennel[name]
+            print(dog.name, 'is checked out of', self.name)
+            del self.kennel[dog.name]
+            return dog
+        else:
+            print('Sorry', name, 'is not boarding at', self.name)
+            return None
+        
+    def barktime(self):
+        for dog_name in self.kennel:
+            dog = self.kennel[dog_name]
+            dog.bark()
+
+    def hire_walker(self, walker):
+        if isinstance(walker, DogWalker):
+            self.walker = walker
+        else:
+            print('Sory,', walker.name, 'is not a Dog Walker')
+
+    def walking_service(self):
+        if self.walker != None:
+            self.walker.walk_the_dogs(self.kennel)
+
 
 class Cat():
     def __init__(self, name):
@@ -149,30 +183,80 @@ class Cat():
     def meow(self):
         print(self.name, 'Says, "Meow"')
 
+
+    
+
+# def test_code():
+#     codie = Dog('Codie', 12, 38)
+#     jackson = Dog('Jackson', 9, 12)
+#     sparky = Dog('Sparky', 2, 14)
+#     rody = ServiceDog('Rody', 8, 38, 'Joseph')
+#     dude = FrisbeeDog('Dude', 5, 20)
+#     kitty = Cat('Kitty')
+
+#     hotel = Hotel('Doggie Hotel')
+#     hotel.check_in(codie)
+#     hotel.check_in(jackson)
+#     hotel.check_in(rody)
+#     hotel.check_in(dude)
+#     hotel.check_in(kitty)
+
+#     dog = hotel.check_out(codie.name)
+#     print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+#     dog = hotel.check_out(jackson.name)
+#     print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+#     dog = hotel.check_out(rody.name)
+#     print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+#     dog = hotel.check_out(dude.name)
+#     print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
+#     dog = hotel.check_out(sparky.name)
+
+
+# test_code()
+
+
+# def test_code():
+#     codie = Dog('Codie', 12, 38)
+#     jackson = Dog('Jackson', 9, 12)
+#     rody = ServiceDog('Rody', 8, 38, 'Joseph')
+#     frisbee = Frisbee('red')
+#     dude = FrisbeeDog('Dude', 5, 20)
+#     dude.catch(frisbee)
+
+#     codie.walk()
+#     jackson.walk()
+#     rody.walk()
+#     dude.walk()
+
+    # hotel = Hotel('Doggie Hotel')
+    # hotel.check_in(codie)
+    # hotel.check_in(jackson)
+    # hotel.check_in(rody)
+    # hotel.check_in(dude)
+
+    # hotel.barktime()
+
+
+
+
+
 def test_code():
     codie = Dog('Codie', 12, 38)
     jackson = Dog('Jackson', 9, 12)
     sparky = Dog('Sparky', 2, 14)
     rody = ServiceDog('Rody', 8, 38, 'Joseph')
+    rody.is_working = True
     dude = FrisbeeDog('Dude', 5, 20)
-    kitty = Cat('Kitty')
-
+    
     hotel = Hotel('Doggie Hotel')
     hotel.check_in(codie)
     hotel.check_in(jackson)
     hotel.check_in(rody)
     hotel.check_in(dude)
-    hotel.check_in(kitty)
 
-    dog = hotel.check_out(codie.name)
-    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
-    dog = hotel.check_out(jackson.name)
-    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
-    dog = hotel.check_out(rody.name)
-    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
-    dog = hotel.check_out(dude.name)
-    print('Checked out', dog.name, 'who is', dog.age, 'and', dog.weight, 'lbs')
-    dog = hotel.check_out(sparky.name)
+    joe = DogWalker('joe')
+    hotel.hire_walker(joe)
 
+    hotel.walking_service()
 
 test_code()
