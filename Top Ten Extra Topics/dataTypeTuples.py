@@ -7,3 +7,17 @@ for movie in my_list:
 
 for movie in my_tuple:
     print(movie)
+
+print(my_tuple[2])
+
+x, y, z = (1, 2, 3)
+
+print(x)
+
+apples = 'mac', 'red', 'green'
+
+print(apples[0])
+
+single = (3.14159265,)
+
+print(single[0])
